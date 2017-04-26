@@ -5,4 +5,4 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./NamedDelegatedModulesPlugin"));
 __export(require("./AlwaysIncludeHmrBootstrapPlugin"));
-__export(require("./InjectParentAppBundlePlugin"));
+__export(require("./InsertExternalChunkPlugin"));

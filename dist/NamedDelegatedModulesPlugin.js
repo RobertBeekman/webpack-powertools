@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * A webpack plugin that ensures that delegated modules get a module name so that it is consistent across builds.
+ */
 class NamedDelegatedModulesPlugin {
     constructor() {
     }
