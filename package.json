@@ -1,0 +1,33 @@
+{
+  "name": "webpack-powertools",
+  "version": "0.0.1",
+  "description": "Some custom webpack plugins",
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmezach/webpack-powertools.git"
+  },
+  "keywords": [
+    "webpack",
+    "tools",
+    "aurelia",
+    "spa"
+  ],
+  "author": "Jonathan Mezach",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jmezach/webpack-powertools/issues"
+  },
+  "homepage": "https://github.com/jmezach/webpack-powertools#readme",
+  "devDependencies": {
+    "@types/webpack": "^2.2.15",
+    "typescript": "^2.2.2"
+  },
+  "peerDependencies": {
+    "webpack": ">= 2.2.0"
+  }
+}
