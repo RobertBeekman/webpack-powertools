@@ -1,4 +1,3 @@
-/// <reference types="webpack" />
 import * as Webpack from "webpack";
 /**
  * This plugin ensures that the required bootstrapping for Webpack HMR is inserted into the entry-point for the application.

@@ -1,23 +1,28 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const NormalizedModulesPlugin_1 = require("./NormalizedModulesPlugin");
+exports.NamedDelegatedModulesPlugin = void 0;
 /**
  * A webpack plugin that ensures that delegated modules get a module name so that it is consistent across builds.
  */
 class NamedDelegatedModulesPlugin {
-    constructor() {
-    }
     apply(compiler) {
-        compiler.plugin("compile", (params) => {
-            params.normalModuleFactory.apply(new NormalizedModulesPlugin_1.NormalizedModulesPlugin());
+        compiler.hooks.compile.tap('named-delegated-modules', params => {
+            params.normalModuleFactory.hooks.module.tap('named-delegated-modules', (module) => {
+                const normalModule = module;
+                if (normalModule && normalModule.userRequest && normalModule.userRequest.indexOf("node_modules") > 0) {
+                    normalModule.userRequest = "./" + normalModule.userRequest.substring(normalModule.userRequest.indexOf("node_modules"));
+                }
+                return module;
+            });
         });
-        compiler.plugin("compilation", (compilation, params) => {
-            compilation.plugin("before-module-ids", (modules) => {
-                modules.forEach((module) => {
-                    if (module.constructor.name === "DelegatedModule") {
-                        module.id = module.request;
+        compiler.hooks.compilation.tap('named-delegated-modules', compilation => {
+            compilation.hooks.beforeModuleIds.tap('named-delegated-modules', modules => {
+                for (const module of modules) {
+                    const normalModule = module;
+                    if (normalModule && normalModule.constructor.name === "DelegatedModule") {
+                        normalModule.id = normalModule.request;
                     }
-                });
+                }
             });
         });
     }

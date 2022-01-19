@@ -1,4 +1,3 @@
-/// <reference types="webpack" />
 import * as Webpack from "webpack";
 /**
  * This plugin extends the HtmlWebpackPlugin by inserting an external chunk so that it loads after the

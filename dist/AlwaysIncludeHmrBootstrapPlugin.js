@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.AlwaysIncludeHmrBootstrapPlugin = void 0;
 /**
  * This plugin ensures that the required bootstrapping for Webpack HMR is inserted into the entry-point for the application.
  * By doing this, any subsequent compilations that use the resulting bundle can use HMR.

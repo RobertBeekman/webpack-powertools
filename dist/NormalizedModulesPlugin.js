@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NormalizedModulesPlugin = void 0;
 class NormalizedModulesPlugin {
     apply(normalModuleFactory) {
         // Add a "module" plugin that normalizes requests to node_modules so that they are always relative from the current app
